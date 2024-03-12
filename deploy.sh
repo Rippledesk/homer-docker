@@ -1,4 +1,16 @@
-sudo apt install gnome-terminal
-curl https://desktop.docker.com/linux/main/amd64/139021/docker-desktop-4.28.0-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64&_gl=1*nto8hs*_ga*MTQyMzA3MzQ4OC4xNzEwMjQ0OTE4*_ga_XJWPQMJYHQ*MTcxMDI0NDkxNy4xLjEuMTcxMDI0Nzc0MC40My4wLjA.
+# Add Docker's official GPG key:
 sudo apt-get update
-sudo apt-get install ./docker-desktop-4.28.0-amd64.deb
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
