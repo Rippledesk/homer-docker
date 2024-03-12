@@ -13,8 +13,8 @@ services:
       - ./grafana/provisioning/:/etc/grafana/provisioning/
       - ./grafana/plugins/k8spacket-nodegraphplugin-datasource:/var/lib/grafana/plugins/k8spacket-nodegraphplugin-datasource
     environment:
-      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
-      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-rippledeskmonitor}
+      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-rippledeskmonitor}
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_USERS_DEFAULT_THEME=light
       - GF_EXPLORE_ENABLED=true
