@@ -117,14 +117,14 @@ services:
     image: ghcr.io/sipcapture/heplify-server:latest
     container_name: heplify-server
     ports:
-      - "9876:9060"
+      - "9060:9060"
       - "9096:9096"
-      - "9876:9060/udp"
+      - "9060:9060/udp"
       - "9061:9061/tcp"
     command:
       - './heplify-server'
     environment:
-      - "HEPLIFYSERVER_HEPADDR=0.0.0.0:9876"
+      - "HEPLIFYSERVER_HEPADDR=0.0.0.0:9060"
       - "HEPLIFYSERVER_HEPTCPADDR=0.0.0.0:9061"
       - "HEPLIFYSERVER_DBSHEMA=mock"
       - "HEPLIFYSERVER_DBDRIVER=mock"
@@ -142,7 +142,7 @@ services:
       - clickhouse-server
       - vector
     expose:
-      - 9876
+      - 9060
       - 9061
       - 9090
       - 9096
